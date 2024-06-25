@@ -2,7 +2,4 @@ streamlit
 pandas
 gspread
 oauth2client
-datetime
 gspread_dataframe
-os
-json
