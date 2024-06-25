@@ -7,17 +7,13 @@ from gspread_dataframe import set_with_dataframe
 import os
 import json
 
-credentials_json = os.getenv("GOOGLE_CREDENTIALS")
-credentials_dict = json.loads(credentials_json)
+credentials_dict = json.loads(st.secrets["GOOGLE_CREDENTIALS"])
 
-# Criar um arquivo de credenciais temporário
-credentials_file_path = "credentials.json"
-with open(credentials_file_path, "w") as creds_file:
-    json.dump(credentials_dict, creds_file)
-
-# Configuração da API do Google Sheets
+# Escopo das APIs que você quer acessar
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_file_path, scope)
+
+# Crie as credenciais usando o dict
+credentials = ServiceAccountCredentials.from_json_keyfile_dict(credentials_dict, scope)
 client = gspread.authorize(credentials)
 
 # Função para carregar os dados da planilha
