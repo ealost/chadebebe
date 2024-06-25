@@ -7,10 +7,20 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import datetime
 from gspread_dataframe import set_with_dataframe
+import os
+import json
+
+credentials_json = os.getenv("GOOGLE_CREDENTIALS")
+credentials_dict = json.loads(credentials_json)
+
+# Criar um arquivo de credenciais temporário
+credentials_file_path = "credentials.json"
+with open(credentials_file_path, "w") as creds_file:
+    json.dump(credentials_dict, creds_file)
 
 # Configuração da API do Google Sheets
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-credentials = ServiceAccountCredentials.from_json_keyfile_name("C:\\Users\\evandro.ferreira\\Desktop\\Scripts\\credentials.json", scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_name(credentials_file_path, scope)
 client = gspread.authorize(credentials)
 
 # Função para carregar os dados da planilha
