@@ -77,17 +77,16 @@ nome_comprador = st.text_input('Seu Nome')
 item_selecionado = col1.selectbox('Item', df['Item'].tolist())
 
 quantidade_disponivel = int(df[df['Item'] == item_selecionado]['Quantidade Disponível'].values[0])
-min_quantidade = 1 if quantidade_disponivel > 0 else 0
-max_quantidade = quantidade_disponivel if quantidade_disponivel > 0 else 0
+min_quantidade = 0  # Definir o mínimo como 0, já que não podemos ter menos que zero
 
-quantidade_selecionada = col2.number_input('Quantidade', min_value=min_quantidade, max_value=max_quantidade, value=min_quantidade)
+if quantidade_disponivel > 0:
+    max_quantidade = quantidade_disponivel
+    valor_padrao = 1  # Valor padrão quando há disponibilidade
+else:
+    max_quantidade = 0
+    valor_padrao = 0  # Valor padrão quando não há disponibilidade
 
-# # Seleção de itens e quantidade na barra lateral
-# st.sidebar.image('https://res.cloudinary.com/dipzskced/image/upload/v1718218109/kaa7aid0y4rpfcosksl8.png')
-# st.sidebar.header('Selecione o item que deseja presentear')
-# item_selecionado = st.sidebar.selectbox('Item', df['Item'].tolist())
-# quantidade_selecionada = st.sidebar.number_input('Quantidade', min_value=1, max_value=int(df[df['Item'] == item_selecionado]['Quantidade Disponível'].values[0]), value=1)
-# nome_comprador = st.sidebar.text_input('Seu Nome')
+quantidade_selecionada = col2.number_input('Quantidade', min_value=min_quantidade, max_value=max_quantidade, value=valor_padrao)
 
 # Caixa de texto para mensagem carinhosa
 mensagem_carinhosa = st.text_area('Mensagem Carinhosa')
