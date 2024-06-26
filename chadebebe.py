@@ -149,7 +149,7 @@ st.subheader('Como chegar')
 
 def mapa_interativo():
     
-    m = folium.Map(location=[-25.439065117200716, -49.23696677740806], zoom_start=12, tiles='Stamen Watercolor')
+    m = folium.Map(location=[-25.439065117200716, -49.23696677740806], zoom_start=12, tiles='Stamen Toner')
 
     # Adicionar marcador
     folium.Marker([-25.439065117200716, -49.23696677740806], tooltip='Condomínio San Marco').add_to(m)
