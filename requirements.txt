@@ -3,3 +3,5 @@ pandas
 gspread
 oauth2client
 gspread_dataframe
+folium
+streamlit_folium
