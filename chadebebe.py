@@ -85,7 +85,7 @@ quantidade_selecionada = col2.number_input('Quantidade', min_value=1, max_value=
 # Caixa de texto para mensagem carinhosa
 mensagem_carinhosa = st.text_area('Mensagem Carinhosa')
 
-if st.sidebar.button('Confirmar'):
+if st.button('Confirmar'):
     if nome_comprador and mensagem_carinhosa:
         df['Quantidade Comprada'] = df['Quantidade Comprada'].replace('', '0')
         df['Quantidade Disponível'] = df['Quantidade Disponível'].replace('', '0')
