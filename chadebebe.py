@@ -6,6 +6,8 @@ import datetime
 from gspread_dataframe import set_with_dataframe
 import os
 import json
+from streamlit_folium import folium_static
+import folium
 
 st.set_page_config(page_title="Chá de bebê da Cecília")
 
@@ -142,3 +144,14 @@ intercede por nós para que, como tu, possamos ser testemunhas da fé com alegri
 >
 >_Amém._""")
 
+def mapa_interativo():
+    # Criar um mapa básico com coordenadas iniciais
+    m = folium.Map(location=[-23.5505, -46.6333], zoom_start=12)
+
+    # Adicionar marcador
+    folium.Marker([-23.5505, -46.6333], tooltip='São Paulo').add_to(m)
+
+    # Exibir o mapa no Streamlit
+    folium_static(m)
+
+mapa_interativo()
