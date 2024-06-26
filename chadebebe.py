@@ -78,7 +78,7 @@ nome_comprador = st.text_input('Seu Nome')
 itens_disponiveis = df[df['Quantidade Disponível'] > 0]['Item'].tolist()
 
 if itens_disponiveis:
-    item_selecionado = st.selectbox('Item', itens_disponiveis)
+    item_selecionado = col1.selectbox('Item', itens_disponiveis)
 
     quantidade_disponivel = int(df[df['Item'] == item_selecionado]['Quantidade Disponível'].values[0])
     min_quantidade = 0  # Definir o mínimo como 0, já que não podemos ter menos que zero
@@ -90,7 +90,7 @@ if itens_disponiveis:
         max_quantidade = 0
         valor_padrao = 0  # Valor padrão quando não há disponibilidade
 
-    quantidade_selecionada = st.number_input('Quantidade', min_value=min_quantidade, max_value=max_quantidade, value=valor_padrao)
+    quantidade_selecionada = col2.number_input('Quantidade', min_value=min_quantidade, max_value=max_quantidade, value=valor_padrao)
 else:
     st.write('Não há itens disponíveis para seleção.')
 
