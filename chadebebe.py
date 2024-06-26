@@ -7,6 +7,8 @@ from gspread_dataframe import set_with_dataframe
 import os
 import json
 
+st.set_page_config(page_title="Chá de bebê da Cecília")
+
 credentials_json = st.secrets["GOOGLE_CREDENTIALS"]
 
 # Substituir a chave privada por uma versão com quebras de linha corretas
