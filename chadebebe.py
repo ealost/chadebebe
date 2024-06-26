@@ -7,9 +7,16 @@ from gspread_dataframe import set_with_dataframe
 import os
 import json
 
-credentials_dict = json.loads(st.secrets["GOOGLE_CREDENTIALS"])
+credentials_json = st.secrets["GOOGLE_CREDENTIALS"]
 
-# Escopo das APIs que você quer acessar
+# Substituir a chave privada por uma versão com quebras de linha corretas
+credentials_dict = json.loads(credentials_json)
+credentials_dict['private_key'] = credentials_dict['private_key'].replace(" ", "\n")
+
+# Reformatar as credenciais como JSON
+# formatted_credentials_json = json.dumps(credentials_dict)
+# credentials = json.loads(formatted_credentials_json)
+# # Escopo das APIs que você quer acessar
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 
 # Crie as credenciais usando o dict
