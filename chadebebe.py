@@ -11,7 +11,6 @@ credentials_json = st.secrets["GOOGLE_CREDENTIALS"]
 
 # Substituir a chave privada por uma versão com quebras de linha corretas
 credentials_dict = json.loads(credentials_json)
-credentials_dict['private_key'] = credentials_dict['private_key'].replace(" ", "\n")
 
 # Reformatar as credenciais como JSON
 # formatted_credentials_json = json.dumps(credentials_dict)
