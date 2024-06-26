@@ -60,7 +60,7 @@ st.title('Chá de bebê da Cecília')
 
 st.markdown('> Os filhos são herança do Senhor, uma recompensa que Ele dá. - _Salmo 127:3_')
 st.write('\n')
-st.write("**Data e local:** ⏰ 27 de julho de 2024 | 📍 Rua João Dranka, 66 - Cristo Rei, Curitiba - PR")
+st.write("**Data e local:** ⏰ 27 de julho de 2024 - 15h | 📍 Rua João Dranka, 66 - Cristo Rei, Curitiba - PR")
 st.write('\n')
 st.write(f"""
     Olá, queridos amigos e familiares! Estamos muito felizes em compartilhar com vocês a chegada da nossa bebê Cecília. Faltam {dias_restantes} dias para o nascimento previsto do nosso amor!
