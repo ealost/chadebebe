@@ -75,7 +75,12 @@ col1, col2 = st.columns(2)
 
 nome_comprador = st.text_input('Seu Nome')
 item_selecionado = col1.selectbox('Item', df['Item'].tolist())
-quantidade_selecionada = col2.number_input('Quantidade', min_value=1, max_value=int(df[df['Item'] == item_selecionado]['Quantidade Disponível'].values[0]), value=1)
+
+quantidade_disponivel = int(df[df['Item'] == item_selecionado]['Quantidade Disponível'].values[0])
+min_quantidade = 1 if quantidade_disponivel > 0 else 0
+max_quantidade = quantidade_disponivel if quantidade_disponivel > 0 else 0
+
+quantidade_selecionada = col2.number_input('Quantidade', min_value=min_quantidade, max_value=max_quantidade, value=min_quantidade)
 
 # # Seleção de itens e quantidade na barra lateral
 # st.sidebar.image('https://res.cloudinary.com/dipzskced/image/upload/v1718218109/kaa7aid0y4rpfcosksl8.png')
