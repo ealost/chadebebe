@@ -102,10 +102,10 @@ df_mensagem = pd.DataFrame({'nome_comprador': [nome_comprador], 'mensagem_carinh
 
 col1, col2 = st.columns(2)
 
-col1.image('https://i.pinimg.com/originals/c7/10/c1/c710c11985c3a64f9ab0d1a0a2224a04.jpg', caption='Santa Cecília, padroeira dos músicos e dos poetas', use_column_width=True)
-col2.image('https://res.cloudinary.com/dipzskced/image/upload/v1718197968/yzxmhv6cec0jruhxsprl.jpg', caption='Primeira foto da nossa bebê', use_column_width=True)
-col2.image('https://res.cloudinary.com/dipzskced/image/upload/v1718197969/a64fkfofdu5ytxrnbfts.jpg', caption='Pais sortudos', use_column_width=True)
-col1.image('https://res.cloudinary.com/dipzskced/image/upload/v1718198410/mfm0fbzo3bsfjajylwky.jpg', caption='Primeiro ursinho da Ceci', use_column_width=True)
+col1.image('https://res.cloudinary.com/dipzskced/image/upload/v1718197968/yzxmhv6cec0jruhxsprl.jpg', caption='Primeira foto da nossa bebê', use_column_width=True)
+col2.image('https://i.pinimg.com/originals/c7/10/c1/c710c11985c3a64f9ab0d1a0a2224a04.jpg', caption='Santa Cecília, padroeira dos músicos e dos poetas', use_column_width=True)
+col1.image('https://res.cloudinary.com/dipzskced/image/upload/v1718197969/a64fkfofdu5ytxrnbfts.jpg', caption='Pais sortudos', use_column_width=True)
+col2.image('https://res.cloudinary.com/dipzskced/image/upload/v1718198410/mfm0fbzo3bsfjajylwky.jpg', caption='Primeiro ursinho da Ceci', use_column_width=True)
 
 st.write('\n')
 st.subheader('Oração a Santa Cecília')
