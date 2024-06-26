@@ -148,7 +148,7 @@ st.write('\n')
 st.subheader('Como chegar')
 
 def mapa_interativo():
-    # Criar um mapa básico com coordenadas iniciais
+    estilo_mapa = "Stamen Terrain" 
     m = folium.Map(location=[-25.439065117200716, -49.23696677740806], zoom_start=13)
 
     # Adicionar marcador
