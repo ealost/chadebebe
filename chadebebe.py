@@ -74,19 +74,25 @@ st.write("""
 col1, col2 = st.columns(2)
 
 nome_comprador = st.text_input('Seu Nome')
-item_selecionado = col1.selectbox('Item', df['Item'].tolist())
 
-quantidade_disponivel = int(df[df['Item'] == item_selecionado]['Quantidade Disponível'].values[0])
-min_quantidade = 0  # Definir o mínimo como 0, já que não podemos ter menos que zero
+itens_disponiveis = df[df['Quantidade Disponível'] > 0]['Item'].tolist()
 
-if quantidade_disponivel > 0:
-    max_quantidade = quantidade_disponivel
-    valor_padrao = 1  # Valor padrão quando há disponibilidade
+if itens_disponiveis:
+    item_selecionado = st.selectbox('Item', itens_disponiveis)
+
+    quantidade_disponivel = int(df[df['Item'] == item_selecionado]['Quantidade Disponível'].values[0])
+    min_quantidade = 0  # Definir o mínimo como 0, já que não podemos ter menos que zero
+
+    if quantidade_disponivel > 0:
+        max_quantidade = quantidade_disponivel
+        valor_padrao = 1  # Valor padrão quando há disponibilidade
+    else:
+        max_quantidade = 0
+        valor_padrao = 0  # Valor padrão quando não há disponibilidade
+
+    quantidade_selecionada = st.number_input('Quantidade', min_value=min_quantidade, max_value=max_quantidade, value=valor_padrao)
 else:
-    max_quantidade = 0
-    valor_padrao = 0  # Valor padrão quando não há disponibilidade
-
-quantidade_selecionada = col2.number_input('Quantidade', min_value=min_quantidade, max_value=max_quantidade, value=valor_padrao)
+    st.write('Não há itens disponíveis para seleção.')
 
 # Caixa de texto para mensagem carinhosa
 mensagem_carinhosa = st.text_area('Mensagem Carinhosa')
