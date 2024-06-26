@@ -146,10 +146,10 @@ intercede por nós para que, como tu, possamos ser testemunhas da fé com alegri
 
 def mapa_interativo():
     # Criar um mapa básico com coordenadas iniciais
-    m = folium.Map(location=[-23.5505, -46.6333], zoom_start=12)
+    m = folium.Map(location=[-25.439065117200716, -49.23696677740806], zoom_start=12)
 
     # Adicionar marcador
-    folium.Marker([-23.5505, -46.6333], tooltip='São Paulo').add_to(m)
+    folium.Marker([-25.439065117200716, -49.23696677740806], tooltip='Condomínio San Marco').add_to(m)
 
     # Exibir o mapa no Streamlit
     folium_static(m)
