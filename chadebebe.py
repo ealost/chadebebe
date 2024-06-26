@@ -67,7 +67,7 @@ st.write(f"""
 """)
 
 st.write("""
-    Obrigado por participar do chá de bebê! Escolha um item na barra lateral, indique a quantidade que deseja presentear, 
+    Obrigado por participar do chá de bebê! Escolha um item abaixo, indique a quantidade que deseja presentear, 
     escreva uma mensagem carinhosa para a bebê e clique em "Confirmar". Sua mensagem será enviada para o email dos pais, que guardarão com muito carinho, para que ela leve de lembrança a vida toda.
 """)
 
